@@ -79,122 +79,159 @@ public class Calculator {
     public Calculator(Scanner scanner){
         this.scanner = scanner;
     }
-    public String getValueFromCommand(String command){
+    public String getValueFromCommand(String command, String trigType){
         double value = 0;
         double optionalValue = 0;
+        command=command.trim();
         try {
-            if (command.trim().equalsIgnoreCase("add")) {
+            if (command.equalsIgnoreCase("add")) {
                 double[] values = getTwoValues(scanner);
                 value = values[0];
                 optionalValue = values[1];
                 return String.valueOf(add(value, optionalValue));
             }
-            if (command.trim().equalsIgnoreCase("remove")) {
+            if (command.equalsIgnoreCase("remove")) {
                 double[] values = getTwoValues(scanner);
                 value = values[0];
                 optionalValue = values[1];
                 return String.valueOf(remove(value, optionalValue));
             }
-            if (command.trim().equalsIgnoreCase("divide")) {
+            if (command.equalsIgnoreCase("divide")) {
                 double[] values = getTwoValues(scanner);
                 value = values[0];
                 optionalValue = values[1];
                 return String.valueOf(divide(value, optionalValue));
             }
-            if (command.trim().equalsIgnoreCase("multiply")) {
+            if (command.equalsIgnoreCase("multiply")) {
                 double[] values = getTwoValues(scanner);
                 value = values[0];
                 optionalValue = values[1];
                 return String.valueOf(multiply(value, optionalValue));
             }
-            if (command.trim().equalsIgnoreCase("modulus")) {
+            if (command.equalsIgnoreCase("modulus")) {
                 double[] values = getTwoValues(scanner);
                 value = values[0];
                 optionalValue = values[1];
                 return String.valueOf(modulus(value, optionalValue));
             }
-            if (command.trim().equalsIgnoreCase("power")) {
+            if (command.equalsIgnoreCase("power")) {
                 System.out.println("Enter the base:");
                 value = Double.parseDouble(scanner.nextLine());
                 System.out.println("Enter the exponent:");
                 optionalValue = Double.parseDouble(scanner.nextLine());
                 return String.valueOf(power(value, optionalValue));
             }
-            if (command.trim().equalsIgnoreCase("log10")) {
+            if (command.equalsIgnoreCase("log10")) {
                 value=getValue(scanner);
                 return String.valueOf(log10(value));
             }
-            if (command.trim().equalsIgnoreCase("logNatural")) {
+            if (command.equalsIgnoreCase("logNatural")) {
                 value=getValue(scanner);
                 return String.valueOf(logNatural(value));
             }
-            if (command.trim().equalsIgnoreCase("log")) {
+            if (command.equalsIgnoreCase("log")) {
                 System.out.println("Enter the base of the log:");
                 value = Double.parseDouble(scanner.nextLine());
                 System.out.println("Enter the number:");
                 optionalValue = Double.parseDouble(scanner.nextLine());
                 return String.valueOf(log(value, optionalValue));
             }
-            if (command.trim().equalsIgnoreCase("sin")) {
+            if (command.equalsIgnoreCase("sin")) {
                 value = getValue(scanner);
-                return String.valueOf(sin(value));
+                if(trigType.trim().equalsIgnoreCase("radians")){
+                    return String.valueOf(sin(value));
+                }else if(trigType.trim().equalsIgnoreCase("degrees")){
+                    return String.valueOf(sin(radians(value)));
+                }
             }
-            if (command.trim().equalsIgnoreCase("arcsin")) {
+            if (command.equalsIgnoreCase("arcsin")) {
                 value = getValue(scanner);
-                return String.valueOf(arcsin(value));
+                if(trigType.trim().equalsIgnoreCase("radians")){
+                    return String.valueOf(arcsin(value));
+                }else if(trigType.trim().equalsIgnoreCase("degrees")){
+                    return String.valueOf(arcsin(radians(value)));
+                }
             }
-            if (command.trim().equalsIgnoreCase("sinh")) {
+            if (command.equalsIgnoreCase("sinh")) {
                 value = getValue(scanner);
-                return String.valueOf(hypersin(value));
+                if(trigType.trim().equalsIgnoreCase("radians")){
+                    return String.valueOf(hypersin(value));
+                }else if(trigType.trim().equalsIgnoreCase("degrees")){
+                    return String.valueOf(hypersin(radians(value)));
+                }
             }
-            if (command.trim().equalsIgnoreCase("cos")) {
+            if (command.equalsIgnoreCase("cos")) {
                 value = getValue(scanner);
-                return String.valueOf(cos(value));
+                if(trigType.trim().equalsIgnoreCase("radians")){
+                    return String.valueOf(cos(value));
+                }else if(trigType.trim().equalsIgnoreCase("degrees")){
+                    return String.valueOf(cos(radians(value)));
+                }
             }
-            if (command.trim().equalsIgnoreCase("arccos")) {
+            if (command.equalsIgnoreCase("arccos")) {
                 value = getValue(scanner);
-                return String.valueOf(arccos(value));
+                if(trigType.trim().equalsIgnoreCase("radians")){
+                    return String.valueOf(arccos(value));
+                }else if(trigType.trim().equalsIgnoreCase("degrees")){
+                    return String.valueOf(arccos(radians(value)));
+                }
             }
-            if (command.trim().equalsIgnoreCase("cosh")) {
+            if (command.equalsIgnoreCase("cosh")) {
                 value = getValue(scanner);
-                return String.valueOf(hypercos(value));
+                if(trigType.trim().equalsIgnoreCase("radians")){
+                    return String.valueOf(hypercos(value));
+                }else if(trigType.trim().equalsIgnoreCase("degrees")){
+                    return String.valueOf(hypercos(radians(value)));
+                }
             }
-            if (command.trim().equalsIgnoreCase("tan")) {
+            if (command.equalsIgnoreCase("tan")) {
                 value = getValue(scanner);
-                return String.valueOf(tan(value));
+                if(trigType.trim().equalsIgnoreCase("radians")){
+                    return String.valueOf(tan(value));
+                }else if(trigType.trim().equalsIgnoreCase("degrees")){
+                    return String.valueOf(tan(radians(value)));
+                }
             }
-            if (command.trim().equalsIgnoreCase("arctan")) {
+            if (command.equalsIgnoreCase("arctan")) {
                 value = getValue(scanner);
-                return String.valueOf(arctan(value));
+                if(trigType.trim().equalsIgnoreCase("radians")){
+                    return String.valueOf(arctan(value));
+                }else if(trigType.trim().equalsIgnoreCase("degrees")){
+                    return String.valueOf(arctan(radians(value)));
+                }
             }
-            if (command.trim().equalsIgnoreCase("tanh")) {
+            if (command.equalsIgnoreCase("tanh")) {
                 value = getValue(scanner);
-                return String.valueOf(hypertan(value));
+                if(trigType.trim().equalsIgnoreCase("radians")){
+                    return String.valueOf(hypertan(value));
+                }else if(trigType.trim().equalsIgnoreCase("degrees")){
+                    return String.valueOf(hypertan(radians(value)));
+                }
             }
-            if (command.trim().equalsIgnoreCase("hypot")) {
+            if (command.equalsIgnoreCase("hypot")) {
                 System.out.println("Enter the non-hypotenuse side A:");
                 value = Double.parseDouble(scanner.nextLine());
                 System.out.println("Enter the non-hypotenuse side B:");
                 optionalValue = Double.parseDouble(scanner.nextLine());
                 return String.valueOf(pythagoras(value, optionalValue));
             }
-            if (command.trim().equalsIgnoreCase("radians")) {
+            if (command.equalsIgnoreCase("radians")) {
                 value = getValue(scanner);
                 return String.valueOf(radians(value));
             }
-            if (command.trim().equalsIgnoreCase("degrees")) {
+            if (command.equalsIgnoreCase("degrees")) {
                 value = getValue(scanner);
                 return String.valueOf(degrees(value));
             }
-            if (command.trim().equalsIgnoreCase("sqrt")) {
+            if (command.equalsIgnoreCase("sqrt")) {
                 value = getValue(scanner);
                 return String.valueOf(sqrt(value));
             }
-            if (command.trim().equalsIgnoreCase("cbrt")) {
+            if (command.equalsIgnoreCase("cbrt")) {
                 value = getValue(scanner);
                 return String.valueOf(cbrt(value));
             }
-            if (command.trim().equalsIgnoreCase("root")) {
+            if (command.equalsIgnoreCase("root")) {
                 System.out.println("Enter the number to be rooted:");
                 value = Double.parseDouble(scanner.nextLine());
                 System.out.println("Enter the n root number:");
@@ -204,17 +241,27 @@ public class Calculator {
         } catch(Exception e){
             return "valueWasInvalid";
         }
-        if(command.trim().equalsIgnoreCase("exit")){
+        if(command.equalsIgnoreCase("switch")){
+            if(trigType.equals("radians")){
+                return "degrees";
+            } else{
+                return "radians";
+            }
+        }
+        if(command.equalsIgnoreCase("type")){
+            return trigType;
+        }
+        if(command.equalsIgnoreCase("exit")){
             return "exit";
         }
-        if(command.trim().equalsIgnoreCase("h")||command.trim().equalsIgnoreCase("help")){
-            return"Info: \nCos, sin etc functions use radians \nCommands:\nhelp - Get this page \nexit - Exit the program \npageOne - Get page one of maths commands \npageTwo - Get page two of maths commands";
+        if(command.equalsIgnoreCase("h")||command.equalsIgnoreCase("help")){
+            return"Info: \nCos, sin etc functions use radians by default.\nCommands:\nhelp - Get this page \nexit - Exit the program \nswitch - Makes trigonometry functions use degrees if they are using radians and vice versa \ntype - Shows if trigonometry functions use radians or degrees\npageOne - Get page one of maths commands \npageTwo - Get page two of maths commands";
         }
-        if(command.trim().equalsIgnoreCase("pageOne")){
+        if(command.equalsIgnoreCase("pageOne")){
             return "Page one of maths commands:\nadd - Adds two numbers\nremove - Removes the second number from the first\ndivide - Returns the first number divided by the second\nmultiply - multiplies two numbers\nmodulus - Gives the remainder of the division of the two numbers\nlog10 - Returns the log base 10 of the number\nlogNatural - Gets the natural log of the number\nlog -  Gets a custom base log of the number\npower - Gets the a number to the power of another number\nsin - Returns the sin of a number\narcsin - Returns the arc sin of a number\nsinh - Returns the hyper sin of a number\ncos - Returns the cos of a number\narccos - Returns the arc cos of a number\ncosh - Returns the hyper cos of a number\ntan - Returns the tan of a number\narctan - Returns the arc tan of a number\ntanh - Returns the hyper tan of a number";
 
         }
-        if(command.trim().equalsIgnoreCase("pageTwo")){
+        if(command.equalsIgnoreCase("pageTwo")){
             return "Page two of maths commands:\nhypot - Gets the hypotenuse of a triangle with sides A and B\nradians - Converts degrees to radians\ndegrees - Converts radians to degrees\nsqrt - Gets the square root of a number\ncbrt - Gets the cube root of a number\nroot - Gets the nth root of a number";
         }
         return "Invalid command";
