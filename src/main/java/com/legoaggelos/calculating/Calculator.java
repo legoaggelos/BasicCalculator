@@ -258,7 +258,7 @@ public class Calculator {
             return "exit";
         }
         if (command.equalsIgnoreCase("h") || command.equalsIgnoreCase("help")) {
-            return "Info: \nTrig functions use radians by default.\nType last when entering a number to get the last number outputted.\nDefaults to zero.\nCommands:\nhelp - Get this page \nexit - Exit the program \nswitch - Makes trigonometry functions use degrees if they are using radians and vice versa \ntype - Shows if trigonometry functions use radians or degrees\npageOne - Get page one of maths commands \npageTwo - Get page two of maths commands";
+            return "Info: \nTrig functions use radians by default.\nType last when entering a number to get the last number outputted,\nglr to use the golden ratio as the number,\npi to use pi as the number and\ne to use euler's number as the number.\nDefaults to zero.\nCommands:\nhelp - Get this page \nexit - Exit the program \nswitch - Makes trigonometry functions use degrees if they are using radians and vice versa \ntype - Shows if trigonometry functions use radians or degrees\npageOne - Get page one of maths commands \npageTwo - Get page two of maths commands";
         }
         if (command.equalsIgnoreCase("pageOne")) {
             return "Page one of maths commands:\nadd - Adds two numbers\nremove - Removes the second number from the first\ndivide - Returns the first number divided by the second\nmultiply - multiplies two numbers\nmodulus - Gives the remainder of the division of the two numbers\nlog10 - Returns the log base 10 of the number\nlogNatural - Gets the natural log of the number\nlog -  Gets a custom base log of the number\npower - Gets the a number to the power of another number\nsin - Returns the sin of a number\narcsin - Returns the arc sin of a number\nsinh - Returns the hyper sin of a number\ncos - Returns the cos of a number\narccos - Returns the arc cos of a number\ncosh - Returns the hyper cos of a number\ntan - Returns the tan of a number\narctan - Returns the arc tan of a number\ntanh - Returns the hyper tan of a number";
@@ -286,6 +286,15 @@ public class Calculator {
     public static double customParseDouble(String value, double lastValue) throws NullPointerException, NumberFormatException {
         if (value.trim().equalsIgnoreCase("last")) {
             return lastValue;
+        }
+        if(value.trim().equalsIgnoreCase("e")){
+            return Math.E;
+        }
+        if(value.trim().equalsIgnoreCase("pi")){
+            return Math.PI;
+        }
+        if(value.trim().equalsIgnoreCase("glr")){
+            return (1+sqrt(5))/2;
         }
         return Double.parseDouble(value);
     }
