@@ -5,7 +5,7 @@
 constexpr double PI {3.141592653589793};
 constexpr double E {2.718281828459045};
 constexpr double glr {1.618033988749894};
-class Calculator
+namespace Calculator
 {
     double add(double firstValue, double secondValue);
 
@@ -33,7 +33,7 @@ class Calculator
 
     double pythagoras(double sideA, double sideB);
 
-    double cos(double value);
+    double cosine(double value);
 
     double arccos(double value);
 
@@ -56,9 +56,9 @@ class Calculator
     double customRoot(double value, double nthRoot);
     std::string getValueFromCommand(std::string command, std::string trigType, double lastValue);
 
-    std::pair<double, double> getTwoValues(double lastValue);
+    std::pair<double, double> getTwoValues(double lastValue,std::pair<std::string_view,std::string_view> prompts);
 
-    double getValue(double lastValue);
+    double getValue(double lastValue, std::string_view prompt);
 
     double customParseDouble(std::string value, double lastValue);
 };
