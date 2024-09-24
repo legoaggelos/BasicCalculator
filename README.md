@@ -1,1 +1,1 @@
-This is BasicCalculator rewritten in C++(by me). Still WIP.
+This is BasicCalculator rewritten in C++(by me). Comes with a few little bug fixes and additions.
